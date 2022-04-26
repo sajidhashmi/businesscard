@@ -26,3 +26,4 @@ For support, contact Sajid Hashmi or email @ mshashmi@bechtel.com.
 ## Authors
 
 - [@sajidhashmi](https://www.github.com/sajidhashmi)
+- [@mshashmi](https://github.com/mshashmi)
