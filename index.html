@@ -1,0 +1,169 @@
+<html>
+
+<head>
+    <title>Business Card</title>
+    <link rel="shortcut icon" href="qricon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+    function generateQRCode() {
+        var qrImage = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=BEGIN:VCARD%0AN:"
+            + encodeURIComponent(empName.value.trim()) +
+            "%0ATEL;CELL:"
+            + encodeURIComponent(empMobile.value.trim()) +
+            "%0AEMAIL:"
+            + encodeURIComponent(empEmail.value.trim()) +
+            "%0AEND:VCARD";
+        this.qrImagel.src = qrImage;
+        this.qrImager.src = qrImage;
+        this.textToLabel();
+    }
+    function textToLabel() {
+        document.getElementById("lblempNamel").innerHTML = document.getElementById("empName").value;
+        document.getElementById("lblempDesigl").innerHTML = document.getElementById("empDesig").value;
+        document.getElementById("lblempMobilel").innerHTML = document.getElementById("empMobile").value;
+        document.getElementById("lblempEmaill").innerHTML = document.getElementById("empEmail").value;
+
+        document.getElementById("lblempNamer").innerHTML = document.getElementById("empName").value;
+        document.getElementById("lblempDesigr").innerHTML = document.getElementById("empDesig").value;
+        document.getElementById("lblempMobiler").innerHTML = document.getElementById("empMobile").value;
+        document.getElementById("lblempEmailr").innerHTML = document.getElementById("empEmail").value;
+    }
+</script>
+
+<body>
+    <form method="post" id="qrForm">
+        <center>
+            <h1> Business Card QR Code<h1>
+                    Name: <input type="QRCode" id="empName" value="Name" size="15">
+                    Designation: <input type="QRCode" id="empDesig" value="Designation" size="15">
+                    Contact: <input type="number" id="empMobile" value="123456789" size="15">
+                    Email: <input type="email" id="empEmail" value="email@bechtel.com" size="15">
+                    <br><br>
+                    <input type="button" value="Make QR Code" onclick="javascript:generateQRCode();"><br>
+                    <h3>Output:</h3>
+                    <input type='button' value='Print Front Content' onclick='printCard.printFrontDiv()' />
+                    <input type='button' value='Print Back Content' onclick='printCard.printBackDiv()' />
+        </center>
+    </form>
+    <div class="html-content" id="html-content">
+        <div class="frontmain" id="frontmain">
+            <div class="front" id="frontl">
+                <div class="left">
+                    <img class="logo" id="logo" src="Bechtel_Logo.png">
+                </div>
+                <div class="right">
+                    <div class="empName">
+                        <p>
+                            <label class="lblempName" id="lblempNamel"></label></br>
+                            <label class="lblempDesig" id="lblempDesigl"></label><br>
+                        </p>
+                    </div>
+                    <div class="offAdd">
+                        <p class="offName">BECHTEL INDIA PVT. LTD.</p>
+                        <p class="offAddInner">
+                            Knowledge Park</br>
+                            244-245 Udyog Vihar, Phase IV</br>
+                            Gurgaon-122015, Haryana, INDIA</br>
+                        </p>
+                    </div>
+                    <div class="contact">
+                        <p>
+                            Tel: (91) <label class="lblempMobile" id="lblempMobilel"></label>
+                            </br>
+                            <label>E-mail: </label><label class="lblempEmail" id="lblempEmaill"></label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="front" id="frontr">
+                <div class="left">
+                    <img class="logo" id="logo" src="Bechtel_Logo.png">
+                </div>
+                <div class="right">
+                    <div class="empName">
+                        <p>
+                            <label class="lblempName" id="lblempNamer"></label></br>
+                            <label class="lblempDesig" id="lblempDesigr"></label><br>
+                        </p>
+                    </div>
+                    <div class="offAdd">
+                        <p class="offName">BECHTEL INDIA PVT. LTD.</p>
+                        <p class="offAddInner">
+                            Knowledge Park</br>
+                            244-245 Udyog Vihar, Phase IV</br>
+                            Gurgaon-122015, Haryana, INDIA</br>
+                        </p>
+                    </div>
+                    <div class="contact">
+                        <p>
+                            Tel: (91) <label class="lblempMobile" id="lblempMobiler"></label>
+                            </br>
+                            <label>E-mail: </label><label class="lblempEmail" id="lblempEmailr"></label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="backmain" class="backmain">
+            <div id="backl" class="back">
+                <img class="qrCode" id='qrImagel' src='' />
+            </div>
+            <div id="backr" class="back">
+                <img class="qrCode" id='qrImager' src='' />
+            </div>
+        </div>
+    </div>
+    <script>
+        var printCard = new function () {
+
+            this.printFrontDiv = function () {
+
+                var divF = document.getElementById('frontmain');
+                var win = window.open('', '', 'height=700,width=1000');
+
+                var styleF = '<style>';
+                styleF = styleF + '.frontmain { width: 700px; height: 205px; display: flex; align-items: center;}';
+                styleF = styleF + '.front {width: 332px; height: 204px; border: 1px solid #000; display: flex; flex-direction: row; }';
+                styleF = styleF + '.left { display: flex; flex: 1; align-items: center; justify-content: center;}';
+                styleF = styleF + '.logo { height: 54.6px; width: 66px;}';
+                styleF = styleF + '.right { flex: 1.5; align-items: center; justify-content: center; font-size: 12px;}';
+                styleF = styleF + '.lblempName { font-weight: bold;}';
+                styleF = styleF + '.offName { font-weight: bold;}';
+                styleF = styleF + '</style>';
+
+                win.document.write(styleF);
+                win.document.write(divF.outerHTML);
+                win.document.write(divF.outerHTML);
+                win.document.write(divF.outerHTML);
+                win.document.write(divF.outerHTML);
+                win.document.write(divF.outerHTML);
+
+                win.print();
+            }
+
+            this.printBackDiv = function () {
+
+                var divB = document.getElementById('backmain');
+                var win = window.open('', '', 'height=700,width=1000');
+
+                var styleB = '<style>';
+                styleB = styleB + '.backmain { width: 700px; height: 205px; display: flex; align-items: center;}';
+                styleB = styleB + '.back { width: 332px; height: 204px; display: flex; justify-content: center;}';
+                styleB = styleB + '.qrCode { padding: 7%;}';
+                styleB = styleB + '</style>';
+
+                win.document.write(styleB);
+                win.document.write(divB.outerHTML);
+                win.document.write(divB.outerHTML);
+                win.document.write(divB.outerHTML);
+                win.document.write(divB.outerHTML);
+                win.document.write(divB.outerHTML);
+
+                win.print();
+            }
+        }
+    </script>
+</body>
+
+</html>
