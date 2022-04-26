@@ -34,19 +34,21 @@
 <body>
     <form method="post" id="qrForm">
         <center>
-            <h1> Business Card QR Code<h1>
-                    Name: <input type="QRCode" id="empName" value="Name" size="15">
-                    Designation: <input type="QRCode" id="empDesig" value="Designation" size="15">
-                    Contact: <input type="number" id="empMobile" value="123456789" size="15">
-                    Email: <input type="email" id="empEmail" value="email@bechtel.com" size="15">
-                    <br><br>
-                    <input type="button" value="Make QR Code" onclick="javascript:generateQRCode();"><br>
-                    <h3>Output:</h3>
-                    <input type='button' value='Print Front Content' onclick='printCard.printFrontDiv()' />
-                    <input type='button' value='Print Back Content' onclick='printCard.printBackDiv()' />
+            <h1> Business Card QR Code</h1>
+            <h3>
+                Name: <input type="QRCode" id="empName" value="Name" size="15">
+                Designation: <input type="QRCode" id="empDesig" value="Designation" size="15">
+                Contact: <input type="number" id="empMobile" value="123456789" size="15">
+                Email: <input type="email" id="empEmail" value="email@bechtel.com" size="15">
+            </h3>
+            <br>
+            <input type="button" class="button" value="Make QR Code" onclick="javascript:generateQRCode();"><br>
+            <h3>Print</h3>
+            <input type='button' class="button" value='Print Front Content' onclick='printCard.printFrontDiv()' />
+            <input type='button' class="button" value='Print Back Content' onclick='printCard.printBackDiv()' />
         </center>
     </form>
-    <div class="html-content" id="html-content">
+    <div class="main" id="main">
         <div class="frontmain" id="frontmain">
             <div class="front" id="frontl">
                 <div class="left">
